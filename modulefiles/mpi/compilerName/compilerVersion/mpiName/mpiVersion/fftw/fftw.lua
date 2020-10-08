@@ -22,7 +22,7 @@ prepend_path("LD_LIBRARY_PATH", pathJoin(base,"lib"))
 prepend_path("DYLD_LIBRARY_PATH", pathJoin(base,"lib"))
 prepend_path("CPATH", pathJoin(base,"include"))
 prepend_path("MANPATH", pathJoin(base,"share","man"))
-prepend_path("CMAKE_PREFIX_PATH", pathJoin(base,"lib"))
+prepend_path("CMAKE_PREFIX_PATH", pathJoin(base,"lib"), ";")
 
 setenv("FFTW_DIR", base)
 
