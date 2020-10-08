@@ -108,9 +108,10 @@ mkdir -p $logdir
 
 # start with a clean slate
 if $MODULES; then
+  HPC_STACK_VERSION="$(head -n 1 ${HPC_STACK_ROOT}/VERSION)"
   source $MODULESHOME/init/bash
   module use $PREFIX/modulefiles/stack
-  module load hpc
+  module load hpc/${HPC_STACK_VERSION}
 else
   no_modules
   set_no_modules_path
@@ -177,6 +178,18 @@ build_nceplib bufr
 build_nceplib wgrib2
 build_nceplib prod_util
 build_nceplib grib_util
+
+# NASA GOCART dependencies
+build_lib ecbuild
+build_lib esma_cmake
+build_lib cmakemodules
+build_lib gftl
+build_lib gftl_shared
+build_lib flap
+build_lib yafyaml
+build_lib pflogger
+build_lib pfunit
+build_lib mapl
 
 # ==============================================================================
 # optionally clean up
