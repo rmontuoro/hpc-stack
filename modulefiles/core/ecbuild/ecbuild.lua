@@ -16,9 +16,10 @@ local base = pathJoin(opt,"core",pkgName,pkgVersion)
 prepend_path("PATH", pathJoin(base,"bin"))
 
 setenv("ecbuild_ROOT", base)
+setenv("ECBUILD_PATH", base)
 prepend_path("CMAKE_PREFIX_PATH", base, ";")
 
 whatis("Name: ".. pkgName)
 whatis("Version: " .. pkgVersion)
 whatis("Category: Software")
-whatis("Description: ecBuild (ECMWF build system)")
+whatis("Description: ecbuild (A CMake-based build system from ECMWF)")
