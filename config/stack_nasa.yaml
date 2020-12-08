@@ -5,8 +5,8 @@ ecbuild:
 
 esma_cmake:
   build: YES
-  repo: rmontuoro
-  version: feature/ufs
+  repo: GEOS-ESM
+  version: develop
 
 cmakemodules:
   build: YES
@@ -33,12 +33,12 @@ yafyaml:
   repo: Goddard-Fortran-Ecosystem
   version: v0.3.3
 
-flap:
-  build: YES
-  repo: mathomp4
-  version: geos/v1.9.0
+#flap:
+#  build: YES
+#  repo: mathomp4
+#  version: geos/v1.9.0
 
 mapl:
   build: YES
-  repo: rmontuoro
-  version: feature/ufs
+  repo: GEOS-ESM
+  version: develop

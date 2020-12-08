@@ -4,7 +4,7 @@ set -eux
 
 name="mapl"
 repo=${1:-${STACK_mapl_repo:-"GEOS-ESM"}}
-version=${2:-${STACK_mapl_version:-"NUOPC_MAPLcap"}}
+version=${2:-${STACK_mapl_version:-"develop"}}
 
 # Hyphenated version used for install prefix
 compiler=$(echo $HPC_COMPILER | sed 's/\//-/g')
@@ -19,13 +19,15 @@ if $MODULES; then
   module load hpc-$HPC_MPI
   module load ecbuild
   module load gftl-shared
-  module load flap
+# module load flap
   module load pflogger
   module load pfunit
   module load yafyaml
   module load esma_cmake
   module load cmakemodules
   module load python
+  module load esmf
+  module load netcdf
   module list
 # export CMAKE_MODULE_PATH="/work/noaa/nems/rmontuor/dev/app/repo/install/core/ecbuild/GEOS-ESM-geos.v1.0.5/share/ecbuild/cmake/;${CMAKE_MODULE_PATH}"
 # export CMAKE_PREFIX_PATH="/work/noaa/nems/rmontuor/dev/app/repo/install/core/ecbuild/GEOS-ESM-geos.v1.0.5/lib/cmake/ecbuild;${CMAKE_PREFIX_PATH}"
@@ -60,11 +62,12 @@ mkdir -p build && cd build
 CMAKE_OPTS=${STACK_mapl_cmake_opts:-""}
 
 cmake .. \
-      -DCMAKE_INSTALL_PREFIX=$prefix \
-      -DCMAKE_MODULE_PATH=$CMAKE_MODULE_PATH \
-      -DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH \
-      -DCMAKE_BUILD_TYPE=Release \
-      ${CMAKE_OPTS}
+	-DCMAKE_INSTALL_PREFIX=$prefix \
+	-DCMAKE_MODULE_PATH="$CMAKE_MODULE_PATH" \
+	-DCMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DBUILD_WITH_FLAP=NO \
+	${CMAKE_OPTS}
 
 VERBOSE=$MAKE_VERBOSE make -j${NTHREADS:-4} install
 

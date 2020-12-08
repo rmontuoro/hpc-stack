@@ -14,10 +14,10 @@ local opt = os.getenv("HPC_OPT") or os.getenv("OPT") or "/opt/modules"
 local base = pathJoin(opt,"core",pkgName,pkgVersion)
 
 prepend_path("PATH", pathJoin(base,"bin"))
+prepend_path("CMAKE_MODULE_PATH", pathJoin(base, "share", "ecbuild", "cmake"), ";")
 
 setenv("ecbuild_ROOT", base)
 setenv("ECBUILD_PATH", base)
-prepend_path("CMAKE_PREFIX_PATH", base, ";")
 
 whatis("Name: ".. pkgName)
 whatis("Version: " .. pkgVersion)
