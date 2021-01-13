@@ -189,7 +189,6 @@ build_lib esma_cmake
 build_lib cmakemodules
 build_lib gftl
 build_lib gftl_shared
-build_lib flap
 build_lib yafyaml
 build_lib pflogger
 build_lib pfunit
