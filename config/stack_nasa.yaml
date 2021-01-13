@@ -62,5 +62,5 @@ flap:
 
 mapl:
   build: YES
-  repo: rmontuoro
-  version: feature/ufs
+  repo: GEOS-ESM
+  version: v2.4.0
