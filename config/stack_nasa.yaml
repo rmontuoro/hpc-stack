@@ -5,8 +5,8 @@ ecbuild:
 
 esma_cmake:
   build: YES
-  repo: rmontuoro
-  version: feature/ufs
+  repo: GEOS-ESM
+  version: develop
 
 cmakemodules:
   build: YES
