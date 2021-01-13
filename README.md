@@ -128,6 +128,7 @@ script.
   - [ParallelIO](https://github.com/NCAR/ParallelIO)
   - [nccmp](https://gitlab.com/remikz/nccmp)
   - [nco](http://nco.sourceforge.net/)
+  - [CDO](https://code.mpimet.mpg.de/projects/cdo)
   - [FFTW](http://www.fftw.org/)
   - [GPTL](https://jmrosinski.github.io/GPTL/)
   - [Tau2]()
@@ -377,10 +378,16 @@ setenv("LMOD_EXACT_MATCH", "no")
 setenv("LMOD_EXTENDED_DEFAULT", "yes")
 ```
 
-### Known issues
+## Known Issues
 
-NetCDF-C++ does not build with LLVM Clang. It can be disabled  by setting
+- ESMF beta snapshot 27 does not work on macOS. `stack_mac` installs
+  beta 21 instead.
+
+- NetCDF-C++ does not build with LLVM Clang. It can be disabled by setting
 `disable_cxx: YES` in the stack file under the NetCDF section.
+
+- Json-schema-validator does not build with LLVM Clang. It can be disabled
+in the stack file in the json-schema-validator-section.
 
 ## Disclaimer
 
