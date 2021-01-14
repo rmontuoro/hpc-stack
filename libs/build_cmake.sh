@@ -25,7 +25,7 @@ fi
 
 software=$name-$version
 cd ${HPC_STACK_ROOT}/${PKGDIR:-"pkg"}
-url="https://cmake.org/files/v${version%.*}/$software.tar.gz"
+url="https://github.com/Kitware/CMake/releases/download/v${version}/cmake-${version}.tar.gz"
 [[ -d $software ]] || ( $WGET $url; tar -xf $software.tar.gz )
 [[ ${DOWNLOAD_ONLY} =~ [yYtT] ]] && exit 0
 [[ -d $software ]] && cd $software || ( echo "$software does not exist, ABORT!"; exit 1 )
