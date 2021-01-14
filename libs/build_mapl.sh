@@ -15,6 +15,7 @@ if $MODULES; then
   set +x
   source $MODULESHOME/init/bash
   module try-load cmake
+  module try-load python
   module load hpc-$HPC_COMPILER
   module load hpc-$HPC_MPI
   module load ecbuild
@@ -24,7 +25,6 @@ if $MODULES; then
   module load yafyaml
   module load esma_cmake
   module load cmakemodules
-  module load python
   module load esmf
   module load netcdf
   module list
