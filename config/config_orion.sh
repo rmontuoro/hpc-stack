@@ -21,7 +21,6 @@ export MAKE_VERBOSE=N
 export   MAKE_CLEAN=N
 export DOWNLOAD_ONLY=F
 export STACK_EXIT_ON_FAIL=Y
-export STACK_EXIT_ON_FAIL=N
 export WGET="wget -nv"
 
 # Load these basic modules for Orion
